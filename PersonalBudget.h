@@ -19,5 +19,12 @@ public:
     {
         incomesManager = NULL;
         expensesManager = NULL;
-    };
+    }
+    ~PersonalBudget()
+    {
+        delete incomesManager;
+        delete expensesManager;
+        incomesManager = NULL;
+        expensesManager = NULL;
+    }
 };
