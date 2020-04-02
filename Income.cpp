@@ -1,16 +1,16 @@
 #include "Income.h"
 
-int Income::setDate(int newDate)
+void Income::setDate(int newDate)
 {
     date = newDate;
 }
 
-string Income::setItem(string newItem)
+void Income::setItem(string newItem)
 {
     item = newItem;
 }
 
-float Income::setAmount(float newAmount)
+void Income::setAmount(float newAmount)
 {
     amount = newAmount;
 }

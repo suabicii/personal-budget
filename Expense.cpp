@@ -1,16 +1,16 @@
 #include "Expense.h"
 
-int Expense::setDate(int newDate)
+void Expense::setDate(int newDate)
 {
     date = newDate;
 }
 
-string Expense::setItem(string newItem)
+void Expense::setItem(string newItem)
 {
     item = newItem;
 }
 
-float Expense::setAmount(float newAmount)
+void Expense::setAmount(float newAmount)
 {
     amount = newAmount;
 }
