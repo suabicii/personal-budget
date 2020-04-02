@@ -50,3 +50,17 @@ int UserManager::getIdOfNewUser()
     else
         return users.back().getId() + 1;
 }
+
+bool UserManager::doesLoginExist(string login)
+{
+    for (int i = 0; i < users.size(); i++)
+    {
+        if (users[i].getLogin() == login)
+        {
+            cout << endl;
+            cout << "Istnieje uzytkownik o podanym loginie";
+            return true;
+        }
+    }
+    return false;
+}
