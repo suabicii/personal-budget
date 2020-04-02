@@ -5,12 +5,10 @@
 
 class FileWithUsers : public XMLFile
 {
-    const string NAME_OF_FILE_WITH_USERS;
-
     string replaceUserDataToLinesWithDataSeparatedByVerticalLines();
 
 public:
-    FileWithUsers();
-    void writeUserToFile();
+    FileWithUsers(string fileName) : XMLFile(fileName) {}
+    void writeUserToFile(User user);
     vector<User> loadUsersFromFile();
 };

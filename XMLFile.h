@@ -4,14 +4,16 @@ using namespace std;
 
 class XMLFile
 {
-    string fileName;
+    const string FILE_NAME;
 
 protected:
     string replaceDataOfPartOfBudgetToLinesWithDataSeparatedByVerticalLines();
     int getIdOfPartOfBudgetFromDataSeparatedByVerticalLines();
 
 public:
-    XMLFile();
+    XMLFile(string fileName) : FILE_NAME(fileName)
+    {
+    }
     bool isFileEmpty();
     void loadFromFile();
     void updateFile();
