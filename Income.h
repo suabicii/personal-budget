@@ -7,4 +7,12 @@ class Income
     int date;
     string item;
     float amount;
+
+public:
+    int setDate(int newDate);
+    string setItem(string newItem);
+    float setAmount(float newAmount);
+    int getDate();
+    string getItem();
+    float getAmount();
 };
