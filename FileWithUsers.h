@@ -1,3 +1,6 @@
+#ifndef FILE_WITH_USERS
+#define FILE_WITH_USERS
+
 #include <iostream>
 #include <vector>
 #include "User.h"
@@ -12,3 +15,5 @@ public:
     void writeUserToFile(User user);
     vector<User> loadUsersFromFile();
 };
+
+#endif

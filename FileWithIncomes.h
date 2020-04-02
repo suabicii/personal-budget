@@ -1,3 +1,6 @@
+#ifndef FILE_WITH_INCOMES_H
+#define FILE_WITH_INCOMES_H
+
 #include <iostream>
 #include <vector>
 #include "Income.h"
@@ -16,3 +19,5 @@ public:
     void saveIncomeToFile();
     int loadIncomesFromFile();
 };
+
+#endif

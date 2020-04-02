@@ -1,3 +1,6 @@
+#ifndef INCOMES_MANAGER_H
+#define INCOMES_MANAGER_H
+
 #include <iostream>
 #include <vector>
 #include "User.h"
@@ -15,3 +18,5 @@ public:
     void addIncome();
     void loadIncomesFromFile();
 };
+
+#endif

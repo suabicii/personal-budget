@@ -27,4 +27,5 @@ public:
         incomesManager = NULL;
         expensesManager = NULL;
     }
+    void registerNewUser();
 };

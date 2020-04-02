@@ -1,3 +1,6 @@
+#ifndef FILE_WITH_EXPENSES
+#define FILE_WITH_EXPENSES
+
 #include <iostream>
 #include <vector>
 #include "Expense.h"
@@ -16,3 +19,5 @@ public:
     void saveExpenseToFile();
     int loadExpensesFromFile();
 };
+
+#endif

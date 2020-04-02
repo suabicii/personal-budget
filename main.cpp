@@ -12,5 +12,7 @@ int main()
     CMarkup xml;
     PersonalBudget personalBudget("users.xml", "incomes.xml", "expenses.xml");
 
+    personalBudget.registerNewUser();
+
     return 0;
 }

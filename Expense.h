@@ -1,3 +1,6 @@
+#ifndef EXPENSE_H
+#define EXPENSE_H
+
 #include <iostream>
 
 using namespace std;
@@ -16,3 +19,5 @@ public:
     string getItem();
     float getAmount();
 };
+
+#endif

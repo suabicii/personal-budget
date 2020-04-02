@@ -1,3 +1,6 @@
+#ifndef USER_MANAGER_H
+#define USER_MANAGER_H
+
 #include <iostream>
 #include <vector>
 #include <Windows.h>
@@ -28,3 +31,5 @@ public:
     void userLogout();
     void changePassword();
 };
+
+#endif

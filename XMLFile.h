@@ -1,3 +1,6 @@
+#ifndef XML_FILE_H
+#define XML_FILE_H
+
 #include <iostream>
 
 using namespace std;
@@ -18,3 +21,5 @@ public:
     void loadFromFile();
     void updateFile();
 };
+
+#endif

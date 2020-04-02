@@ -1,3 +1,6 @@
+#ifndef EXPENSES_MANAGER_H
+#define EXPENSES_MANAGER_H
+
 #include <iostream>
 #include <vector>
 #include "User.h"
@@ -15,3 +18,5 @@ public:
     void addExpense();
     void loadExpensesFromFile();
 };
+
+#endif
