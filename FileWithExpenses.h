@@ -10,12 +10,10 @@ using namespace std;
 
 class FileWithExpenses : public XMLFile
 {
-    const string NAME_OF_FILE_WITH_EXPENSES;
-
     Expense getExpenseFromFile();
 
 public:
-    FileWithExpenses();
+    FileWithExpenses(string fileName) : XMLFile(fileName) {}
     void saveExpenseToFile();
     int loadExpensesFromFile();
 };

@@ -2,6 +2,7 @@
 #define XML_FILE_H
 
 #include <iostream>
+#include "Markup.h"
 
 using namespace std;
 
@@ -12,14 +13,15 @@ class XMLFile
 protected:
     string replaceDataOfPartOfBudgetToLinesWithDataSeparatedByVerticalLines();
     int getIdOfPartOfBudgetFromDataSeparatedByVerticalLines();
+    bool isFileEmpty(string fileName);
 
 public:
     XMLFile(string fileName) : FILE_NAME(fileName)
     {
     }
-    bool isFileEmpty();
     void loadFromFile();
     void updateFile();
+    string getFileName();
 };
 
 #endif
