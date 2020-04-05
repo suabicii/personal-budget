@@ -24,7 +24,7 @@ public:
     UserManager(string nameOfFileWithUsers) : fileWithUsers(nameOfFileWithUsers)
     {
         idOfLoggedUser = 0;
-        fileWithUsers.loadUsersFromFile();
+        users = fileWithUsers.loadUsersFromFile();
     }
     void registerNewUser();
     void userLogging();

@@ -2,7 +2,6 @@
 
 void FileWithUsers::writeUserToFile(User user)
 {
-    string lineWithUserData;
     CMarkup xml;
 
     if (isFileEmpty(MCD_2PCSZ(getFileName())))
@@ -10,9 +9,13 @@ void FileWithUsers::writeUserToFile(User user)
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("users");
     }
+    else
+    {
+        xml.Load(MCD_2PCSZ(getFileName()));
+        xml.FindElem();
+        xml.IntoElem();
+    }
 
-    xml.FindElem();
-    xml.IntoElem();
     xml.AddElem("user");
     xml.IntoElem();
     xml.AddElem("userId", user.getId());
@@ -38,8 +41,9 @@ vector<User> FileWithUsers::loadUsersFromFile()
     xml.FindElem();
     xml.IntoElem();
 
-    while (xml.FindElem("user"))
+    while (true)
     {
+        xml.FindElem("user");
         xml.IntoElem();
         xml.FindElem("userId");
         user.setId(atoi(MCD_2PCSZ(xml.GetData())));
@@ -58,6 +62,9 @@ vector<User> FileWithUsers::loadUsersFromFile()
 
         xml.OutOfElem();
         users.push_back(user);
+
+        if (!xml.FindElem("user"))
+            break;
     }
 
     return users;

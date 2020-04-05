@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <Windows.h>
 #include "User.h"
 #include "XMLFile.h"
 
