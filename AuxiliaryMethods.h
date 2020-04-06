@@ -1,3 +1,6 @@
+#ifndef AUXILIARY_METHODS_H
+#define AUXILIARY_METHODS_H
+
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -16,3 +19,5 @@ public:
     static string addDate();
     static string changeFirstLetterToBigAndRestToSmall(string text);
 };
+
+#endif
