@@ -64,3 +64,51 @@ bool UserManager::doesLoginExist(string login)
     }
     return false;
 }
+
+void UserManager::userLogging()
+{
+    User user;
+    string login = "", password = "";
+    vector<User>::iterator it;
+
+    cout << endl;
+    cout << "Podaj login: ";
+    login = AuxiliaryMethods::enterLine();
+
+    for (it = users.begin(); it != users.end(); it++)
+    {
+        if (it->getLogin() == login)
+        {
+            for (int i = 3; i > 0; i--)
+            {
+                cout << "Podaj haslo. Pozostalo prob: " << i << ": ";
+                password = AuxiliaryMethods::enterLine();
+
+                if (it->getPassword() == password)
+                {
+                    cout << endl;
+                    cout << "Zalogowales(-as) sie" << endl;
+                    Sleep(1500);
+                    idOfLoggedUser = it->getId();
+                    return;
+                }
+            }
+            cout << "Wprowadzono 3 razy bledne haslo." << endl;
+            Sleep(1500);
+            return;
+        }
+    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl;
+    cout << endl;
+    Sleep(1500);
+}
+
+void UserManager::displayAllUsers()
+{
+    for (int i = 0; i < users.size(); i++)
+    {
+        cout << users[i].getId() << "|";
+        cout << users[i].getLogin() << "|";
+        cout << users[i].getPassword() << endl;
+    }
+}

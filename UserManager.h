@@ -30,6 +30,7 @@ public:
     void userLogging();
     void userLogout();
     void changePassword();
+    void displayAllUsers();
 };
 
 #endif

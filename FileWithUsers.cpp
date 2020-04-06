@@ -38,33 +38,33 @@ vector<User> FileWithUsers::loadUsersFromFile()
     xml.FindElem();
     xml.IntoElem();
 
-    xml.FindElem();
-    xml.IntoElem();
-
     while (true)
     {
-        xml.FindElem("user");
-        xml.IntoElem();
-        xml.FindElem("userId");
-        user.setId(atoi(MCD_2PCSZ(xml.GetData())));
+        if (xml.FindElem("user"))
+        {
+            xml.IntoElem();
+            xml.FindElem("userId");
+            user.setId(atoi(MCD_2PCSZ(xml.GetData())));
 
-        xml.FindElem("login");
-        user.setLogin(MCD_2PCSZ(xml.GetData()));
+            xml.FindElem("login");
+            user.setLogin(MCD_2PCSZ(xml.GetData()));
 
-        xml.FindElem("password");
-        user.setPassword(MCD_2PCSZ(xml.GetData()));
+            xml.FindElem("password");
+            user.setPassword(MCD_2PCSZ(xml.GetData()));
 
-        xml.FindElem("name");
-        user.setName(MCD_2PCSZ(xml.GetData()));
+            xml.FindElem("name");
+            user.setName(MCD_2PCSZ(xml.GetData()));
 
-        xml.FindElem("surname");
-        user.setSurname(MCD_2PCSZ(xml.GetData()));
+            xml.FindElem("surname");
+            user.setSurname(MCD_2PCSZ(xml.GetData()));
 
-        xml.OutOfElem();
-        users.push_back(user);
-
-        if (!xml.FindElem("user"))
+            xml.OutOfElem();
+            users.push_back(user);
+        }
+        else
+        {
             break;
+        }
     }
 
     return users;
