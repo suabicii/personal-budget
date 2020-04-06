@@ -1,26 +1,26 @@
 #include "User.h"
 
-int User::setId(int newId)
+void User::setId(int newId)
 {
     id = newId;
 }
 
-string User::setName(string newName)
+void User::setName(string newName)
 {
     name = newName;
 }
 
-string User::setSurname(string newSurname)
+void User::setSurname(string newSurname)
 {
     surname = newSurname;
 }
 
-string User::setLogin(string newLogin)
+void User::setLogin(string newLogin)
 {
     login = newLogin;
 }
 
-string User::setPassword(string newPassword)
+void User::setPassword(string newPassword)
 {
     password = newPassword;
 }

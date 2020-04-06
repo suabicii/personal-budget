@@ -1,16 +1,20 @@
+#ifndef FILE_WITH_USERS
+#define FILE_WITH_USERS
+
 #include <iostream>
 #include <vector>
+#include <Windows.h>
 #include "User.h"
 #include "XMLFile.h"
 
 class FileWithUsers : public XMLFile
 {
-    const string NAME_OF_FILE_WITH_USERS;
-
     string replaceUserDataToLinesWithDataSeparatedByVerticalLines();
 
 public:
-    FileWithUsers();
-    void writeUserToFile();
+    FileWithUsers(string fileName) : XMLFile(fileName) {}
+    void writeUserToFile(User user);
     vector<User> loadUsersFromFile();
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef INCOME_H
+#define INCOME_H
+
 #include <iostream>
 
 using namespace std;
@@ -9,10 +12,12 @@ class Income
     float amount;
 
 public:
-    int setDate(int newDate);
-    string setItem(string newItem);
-    float setAmount(float newAmount);
+    void setDate(int newDate);
+    void setItem(string newItem);
+    void setAmount(float newAmount);
     int getDate();
     string getItem();
     float getAmount();
 };
+
+#endif

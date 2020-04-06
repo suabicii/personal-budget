@@ -1,3 +1,6 @@
+#ifndef FILE_WITH_INCOMES_H
+#define FILE_WITH_INCOMES_H
+
 #include <iostream>
 #include <vector>
 #include "Income.h"
@@ -7,12 +10,12 @@ using namespace std;
 
 class FileWithIncomes : public XMLFile
 {
-    const string NAME_OF_FILE_WITH_INCOMES;
-
     Income getIncomeFromFile();
 
 public:
-    FileWithIncomes();
+    FileWithIncomes(string fileName) : XMLFile(fileName) {}
     void saveIncomeToFile();
     int loadIncomesFromFile();
 };
+
+#endif

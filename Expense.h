@@ -1,3 +1,6 @@
+#ifndef EXPENSE_H
+#define EXPENSE_H
+
 #include <iostream>
 
 using namespace std;
@@ -9,10 +12,12 @@ class Expense
     float amount;
 
 public:
-    int setDate(int newDate);
-    string setItem(string newItem);
-    float setAmount(float newAmount);
+    void setDate(int newDate);
+    void setItem(string newItem);
+    void setAmount(float newAmount);
     int getDate();
     string getItem();
     float getAmount();
 };
+
+#endif
