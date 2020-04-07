@@ -28,6 +28,6 @@ public:
         expensesManager = NULL;
     }
     void registerNewUser();
-    void userLogging();
+    bool userLogging();
     void displayAllUsers();
 };

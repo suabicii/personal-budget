@@ -5,9 +5,14 @@ void PersonalBudget::registerNewUser()
     userManager.registerNewUser();
 }
 
-void PersonalBudget::userLogging()
+bool PersonalBudget::userLogging()
 {
     userManager.userLogging();
+    if (userManager.isUserLoggedIn())
+    {
+        return true;
+    }
+    return false;
 }
 
 void PersonalBudget::displayAllUsers()

@@ -112,3 +112,11 @@ void UserManager::displayAllUsers()
         cout << users[i].getPassword() << endl;
     }
 }
+
+bool UserManager::isUserLoggedIn()
+{
+    if (idOfLoggedUser > 0)
+        return true;
+    else
+        return false;
+}
