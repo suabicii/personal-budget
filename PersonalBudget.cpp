@@ -11,6 +11,7 @@ bool PersonalBudget::userLogging()
     if (userManager.isUserLoggedIn())
     {
         incomesManager = new IncomesManager(NAME_OF_FILE_WITH_INCOMES, userManager.getIdOfLoggedUser());
+        expensesManager = new ExpensesManager(NAME_OF_FILE_WITH_EXPENSES, userManager.getIdOfLoggedUser());
         return true;
     }
     return false;
@@ -19,7 +20,9 @@ bool PersonalBudget::userLogging()
 void PersonalBudget::userLogout()
 {
     delete incomesManager;
+    delete expensesManager;
     incomesManager = NULL;
+    expensesManager = NULL;
 }
 
 void PersonalBudget::addIncome()
@@ -27,7 +30,17 @@ void PersonalBudget::addIncome()
     incomesManager->addIncome();
 }
 
+void PersonalBudget::addExpense()
+{
+    expensesManager->addExpense();
+}
+
 void PersonalBudget::displayIncomes()
 {
     incomesManager->displayIncomes();
+}
+
+void PersonalBudget::displayExpenses()
+{
+    expensesManager->displayExpenses();
 }

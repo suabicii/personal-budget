@@ -31,5 +31,7 @@ public:
     bool userLogging();
     void userLogout();
     void addIncome();
+    void addExpense();
     void displayIncomes();
+    void displayExpenses();
 };

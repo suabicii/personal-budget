@@ -67,7 +67,9 @@ int main()
                 personalBudget.displayIncomes();
                 break;
             case '2':
-                /* code */
+                personalBudget.addExpense();
+                personalBudget.addExpense();
+                personalBudget.displayExpenses();
                 break;
             case '3':
                 /* code */
