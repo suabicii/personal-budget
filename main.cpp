@@ -49,7 +49,7 @@ int main()
             cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
             cout << "---------------------------" << endl;
             cout << "1. Dodaj przychod" << endl;
-            cout << "2. Wyswietl wydatek" << endl;
+            cout << "2. Dodaj wydatek" << endl;
             cout << "3. Bilans z biezacego miesiaca" << endl;
             cout << "4. Bilans z poprzedniego miesiaca" << endl;
             cout << "5. Bilans z wybranego okresu" << endl;
@@ -63,7 +63,9 @@ int main()
             switch (choice)
             {
             case '1':
-                /* code */
+                personalBudget.addIncome();
+                personalBudget.addIncome();
+                personalBudget.displayIncomes();
                 break;
             case '2':
                 /* code */
@@ -81,6 +83,7 @@ int main()
                 /* code */
                 break;
             case '7':
+                personalBudget.userLogout();
                 isUserLoggedIn = false;
                 break;
             default:

@@ -53,7 +53,7 @@ string AuxiliaryMethods::enterLine()
     return entry;
 }
 
-string AuxiliaryMethods::addDate()
+string AuxiliaryMethods::addDateAndCheckFormat()
 {
     string date = enterLine();
     return date;
@@ -67,4 +67,22 @@ string AuxiliaryMethods::changeFirstLetterToBigAndRestToSmall(string text)
         text[0] = toupper(text[0]);
     }
     return text;
+}
+
+int AuxiliaryMethods::convertDateInStringToInt(string date)
+{
+    string dateWithoutHyphens;
+    int dateAsInt;
+
+    for (int i = 0; i < date.length(); i++)
+    {
+        if (date[i] == '-')
+        {
+            continue;
+        }
+        dateWithoutHyphens += date[i];
+    }
+
+    dateAsInt = atoi(dateWithoutHyphens.c_str());
+    return dateAsInt;
 }

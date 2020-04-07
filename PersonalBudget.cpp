@@ -10,12 +10,24 @@ bool PersonalBudget::userLogging()
     userManager.userLogging();
     if (userManager.isUserLoggedIn())
     {
+        incomesManager = new IncomesManager(NAME_OF_FILE_WITH_INCOMES, userManager.getIdOfLoggedUser());
         return true;
     }
     return false;
 }
 
-void PersonalBudget::displayAllUsers()
+void PersonalBudget::userLogout()
 {
-    userManager.displayAllUsers();
+    delete incomesManager;
+    incomesManager = NULL;
+}
+
+void PersonalBudget::addIncome()
+{
+    incomesManager->addIncome();
+}
+
+void PersonalBudget::displayIncomes()
+{
+    incomesManager->displayIncomes();
 }

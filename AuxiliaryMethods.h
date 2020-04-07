@@ -16,8 +16,9 @@ public:
     static int enterInteger();
     static string enterNumber();
     static string enterLine();
-    static string addDate();
+    static string addDateAndCheckFormat();
     static string changeFirstLetterToBigAndRestToSmall(string text);
+    static int convertDateInStringToInt(string date);
 };
 
 #endif

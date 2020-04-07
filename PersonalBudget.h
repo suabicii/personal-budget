@@ -29,5 +29,7 @@ public:
     }
     void registerNewUser();
     bool userLogging();
-    void displayAllUsers();
+    void userLogout();
+    void addIncome();
+    void displayIncomes();
 };
