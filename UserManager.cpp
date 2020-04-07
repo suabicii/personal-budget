@@ -12,11 +12,11 @@ User UserManager::enterNewUserData()
 
     cout << "Podaj imie: ";
     name = AuxiliaryMethods::enterLine();
-    user.setName(name);
+    user.setName(AuxiliaryMethods::changeFirstLetterToBigAndRestToSmall(name));
 
     cout << "Podaj nazwisko: ";
     surname = AuxiliaryMethods::enterLine();
-    user.setSurname(surname);
+    user.setSurname(AuxiliaryMethods::changeFirstLetterToBigAndRestToSmall(surname));
 
     do
     {
