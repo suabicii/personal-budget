@@ -5,6 +5,7 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
+#include <Windows.h>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ public:
     static int enterInteger();
     static string enterNumber();
     static string enterLine();
-    static string addDateAndCheckFormat();
+    static string addDate();
     static string changeFirstLetterToBigAndRestToSmall(string text);
     static int convertDateInStringToInt(string date);
 };

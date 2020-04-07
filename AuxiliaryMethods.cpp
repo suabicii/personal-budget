@@ -53,9 +53,30 @@ string AuxiliaryMethods::enterLine()
     return entry;
 }
 
-string AuxiliaryMethods::addDateAndCheckFormat()
+string AuxiliaryMethods::addDate()
 {
-    string date = enterLine();
+    string date = "";
+    int year;
+    int month;
+    int day;
+
+    while (true)
+    {
+        date = enterLine();
+
+        if (date.length() == 10)
+        {
+            year = atoi(date.substr(0, 4).c_str());
+            month = atoi(date.substr(5, 7).c_str());
+            day = atoi(date.substr(8, 10).c_str());
+
+            if ((year >= 2000 && year <= 2020) && (month >= 1 && month <= 12) && (day >= 1 && day <= 31))
+                break;
+        }
+        cout << "Niepoprawny format. Podaj date w formacie rrrr-mm-dd" << endl;
+        Sleep(1500);
+    }
+
     return date;
 }
 

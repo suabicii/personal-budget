@@ -23,7 +23,7 @@ Income IncomesManager::addDataOfIncome()
     Income income;
 
     cout << "Podaj date przychodu (format: rrrr-mm-dd): ";
-    date = AuxiliaryMethods::enterLine();
+    date = AuxiliaryMethods::addDate();
     income.setDate(AuxiliaryMethods::convertDateInStringToInt(date));
 
     cout << "Napisz, czego dotyczy dany przychod: ";
