@@ -17,9 +17,13 @@ class IncomesManager
     const int ID_OF_LOGGED_USER;
     FileWithIncomes fileWithIncomes;
     Income addDataOfIncome();
+    int getIdOfNewIncome();
 
 public:
-    IncomesManager(string nameOfFileWithIncomes, int idOfLoggedUser) : fileWithIncomes(nameOfFileWithIncomes), ID_OF_LOGGED_USER(idOfLoggedUser) {}
+    IncomesManager(string nameOfFileWithIncomes, int idOfLoggedUser) : fileWithIncomes(nameOfFileWithIncomes), ID_OF_LOGGED_USER(idOfLoggedUser)
+    {
+        incomes = fileWithIncomes.loadIncomesFromFile(ID_OF_LOGGED_USER);
+    }
     void addIncome();
     void loadIncomesFromFile();
     void displayIncomes();

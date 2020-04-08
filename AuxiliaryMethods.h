@@ -20,6 +20,7 @@ public:
     static string addDate();
     static string changeFirstLetterToBigAndRestToSmall(string text);
     static int convertDateInStringToInt(string date);
+    static string convertDateInIntToString(int date);
 };
 
 #endif

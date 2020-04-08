@@ -67,8 +67,8 @@ string AuxiliaryMethods::addDate()
         if (date.length() == 10)
         {
             year = atoi(date.substr(0, 4).c_str());
-            month = atoi(date.substr(5, 7).c_str());
-            day = atoi(date.substr(8, 10).c_str());
+            month = atoi(date.substr(5, 2).c_str());
+            day = atoi(date.substr(8, 2).c_str());
 
             if ((year >= 2000 && year <= 2020) && (month >= 1 && month <= 12) && (day >= 1 && day <= 31))
                 break;
@@ -106,4 +106,14 @@ int AuxiliaryMethods::convertDateInStringToInt(string date)
 
     dateAsInt = atoi(dateWithoutHyphens.c_str());
     return dateAsInt;
+}
+
+string AuxiliaryMethods::convertDateInIntToString(int date)
+{
+    string dateWithoutHyphens = convertIntToString(date);
+    string fullDate;
+
+    fullDate = dateWithoutHyphens.substr(0, 4) + "-" + dateWithoutHyphens.substr(4, 2) + "-" + dateWithoutHyphens.substr(6, 2);
+
+    return fullDate;
 }
