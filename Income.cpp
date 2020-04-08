@@ -5,6 +5,11 @@ void Income::setId(int newId)
     id = newId;
 }
 
+void Income::setUserId(int newUserId)
+{
+    userId = newUserId;
+}
+
 void Income::setDate(int newDate)
 {
     date = newDate;
@@ -23,6 +28,11 @@ void Income::setAmount(float newAmount)
 int Income::getId()
 {
     return id;
+}
+
+int Income::getUserId()
+{
+    return userId;
 }
 
 int Income::getDate()
