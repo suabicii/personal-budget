@@ -11,6 +11,11 @@ using namespace std;
 
 class AuxiliaryMethods
 {
+    static bool verifyDateFormat(string date);
+    static bool correctDayOfMonth(int day, int daysInMonth);
+    static bool isYearLeap(int year);
+    static int checkAmountOfDaysInMount(int month, int year);
+
 public:
     static string convertIntToString(int number);
     static char enterChar();

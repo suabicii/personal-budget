@@ -22,7 +22,8 @@ char AuxiliaryMethods::enterChar()
             sign = entry[0];
             break;
         }
-        cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
+        else
+            cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
     }
     return sign;
 }
@@ -53,6 +54,77 @@ string AuxiliaryMethods::enterLine()
     return entry;
 }
 
+bool AuxiliaryMethods::isYearLeap(int year)
+{
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+        return true;
+    else
+        return false;
+}
+
+int AuxiliaryMethods::checkAmountOfDaysInMount(int month, int year)
+{
+    switch (month)
+    {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 9:
+        return 31;
+    case 2:
+        if (isYearLeap(year))
+            return 29;
+        else
+            return 28;
+    default:
+        return 30;
+    }
+}
+
+bool AuxiliaryMethods::correctDayOfMonth(int day, int daysInMonth)
+{
+    if (day >= 1 && day <= daysInMonth)
+        return true;
+    else
+        return false;
+}
+
+bool AuxiliaryMethods::verifyDateFormat(string date)
+{
+    int year;
+    int month;
+    int day;
+    int daysInMonth;
+
+    year = atoi(date.substr(0, 4).c_str());
+    month = atoi(date.substr(5, 2).c_str());
+    day = atoi(date.substr(8, 2).c_str());
+    daysInMonth = checkAmountOfDaysInMount(month, year);
+
+    if (!(year >= 2000 && year <= 2020))
+    {
+        cout << "Nieprawidlowy format. Rok musi sie miescic w przedziale: od 2000 do aktualnego roku: ";
+        Sleep(1500);
+        return false;
+    }
+    else if (!(month >= 1 && month <= 12))
+    {
+        cout << "Nieprawidlowy format. Podaj miesiac z przedzialu od 01 od 12: ";
+        Sleep(1500);
+        return false;
+    }
+    else if (!correctDayOfMonth(day, daysInMonth))
+    {
+        cout << "Nieprawidlowy format. Podaj dzien wiekszy od 01 i nie wiekszy od " << daysInMonth << ": ";
+        Sleep(1500);
+        return false;
+    }
+    else
+        return true;
+}
+
 string AuxiliaryMethods::addDate()
 {
     string date = "";
@@ -66,15 +138,14 @@ string AuxiliaryMethods::addDate()
 
         if (date.length() == 10)
         {
-            year = atoi(date.substr(0, 4).c_str());
-            month = atoi(date.substr(5, 2).c_str());
-            day = atoi(date.substr(8, 2).c_str());
-
-            if ((year >= 2000 && year <= 2020) && (month >= 1 && month <= 12) && (day >= 1 && day <= 31))
+            if (verifyDateFormat(date))
                 break;
         }
-        cout << "Niepoprawny format. Podaj date w formacie rrrr-mm-dd" << endl;
-        Sleep(1500);
+        else
+        {
+            cout << "Niepoprawny format. Podaj date w formacie rrrr-mm-dd" << endl;
+            Sleep(1500);
+        }
     }
 
     return date;
