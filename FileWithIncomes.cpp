@@ -77,7 +77,9 @@ vector<Income> FileWithIncomes::loadIncomesFromFile(int idOfLoggedUser)
     {
         if (xml.FindElem("income"))
         {
+            xml.IntoElem();
             xml.FindElem("incomeId");
+            lastIncomeId = atoi(MCD_2PCSZ(xml.GetData()));
             xml.FindElem("userId");
             userIdFromFile = atoi(MCD_2PCSZ(xml.GetData()));
             if (userIdFromFile == idOfLoggedUser)
@@ -85,9 +87,7 @@ vector<Income> FileWithIncomes::loadIncomesFromFile(int idOfLoggedUser)
                 income = getIncomeFromFile();
                 incomes.push_back(income);
             }
-            lastIncomeId++;
-            cout << "id ostatniego przychodu: " << lastIncomeId << endl;
-            system("pause");
+            xml.OutOfElem();
         }
         else
         {
