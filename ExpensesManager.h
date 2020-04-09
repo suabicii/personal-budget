@@ -15,6 +15,7 @@ class ExpensesManager
 {
     vector<Expense> expenses;
     const int ID_OF_LOGGED_USER;
+
     FileWithExpenses fileWithExpenses;
     Expense addDataOfExpense();
 
@@ -22,6 +23,7 @@ public:
     ExpensesManager(string nameOfFileWithExpenses, int idOfLoggedUser)
         : fileWithExpenses(nameOfFileWithExpenses), ID_OF_LOGGED_USER(idOfLoggedUser)
     {
+        expenses = fileWithExpenses.loadExpensesFromFile(ID_OF_LOGGED_USER);
     }
     void addExpense();
     void loadExpensesFromFile();

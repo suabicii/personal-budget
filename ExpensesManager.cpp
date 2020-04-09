@@ -11,6 +11,8 @@ void ExpensesManager::addExpense()
 
     expenses.push_back(expense);
 
+    fileWithExpenses.saveExpenseToFile(expense);
+
     cout << "Wydatek zostal dodany" << endl;
     Sleep(1500);
 }
@@ -21,6 +23,9 @@ Expense ExpensesManager::addDataOfExpense()
     string item = "";
     float amount = 0;
     Expense expense;
+
+    expense.setId(fileWithExpenses.getIdOfLastExpense() + 1);
+    expense.setUserId(ID_OF_LOGGED_USER);
 
     cout << "Podaj date wydatku (format: rrrr-mm-dd): ";
     date = AuxiliaryMethods::addDate();
