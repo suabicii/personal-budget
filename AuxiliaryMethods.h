@@ -6,6 +6,7 @@
 #include <sstream>
 #include <algorithm>
 #include <Windows.h>
+#include <time.h>
 
 using namespace std;
 
@@ -23,6 +24,7 @@ public:
     static string enterNumber();
     static string enterLine();
     static string addDate();
+    static string getCurrentDate();
     static string changeFirstLetterToBigAndRestToSmall(string text);
     static int convertDateInStringToInt(string date);
     static string convertDateInIntToString(int date);

@@ -97,13 +97,16 @@ bool AuxiliaryMethods::verifyDateFormat(string date)
     int month;
     int day;
     int daysInMonth;
+    int currentYear;
+    string currentDate = getCurrentDate();
 
     year = atoi(date.substr(0, 4).c_str());
     month = atoi(date.substr(5, 2).c_str());
     day = atoi(date.substr(8, 2).c_str());
     daysInMonth = checkAmountOfDaysInMount(month, year);
+    currentYear = atoi(currentDate.substr(0, 4).c_str());
 
-    if (!(year >= 2000 && year <= 2020))
+    if (!(year >= 2000 && year <= currentYear))
     {
         cout << "Nieprawidlowy format. Rok musi sie miescic w przedziale: od 2000 do aktualnego roku: ";
         Sleep(1500);
@@ -149,6 +152,27 @@ string AuxiliaryMethods::addDate()
     }
 
     return date;
+}
+
+string AuxiliaryMethods::getCurrentDate()
+{
+    time_t currentTimeInSeconds;
+    tm *date;
+    string fullDate;
+    string month;
+    string day;
+
+    time(&currentTimeInSeconds);
+    date = localtime(&currentTimeInSeconds);
+
+    date->tm_mon++;
+
+    month = date->tm_mon < 10 ? "0" + convertIntToString(date->tm_mon) : convertIntToString(date->tm_mon);
+    day = date->tm_mday < 10 ? "0" + convertIntToString(date->tm_mday) : convertIntToString(date->tm_mday);
+
+    fullDate = convertIntToString(1900 + date->tm_year) + "-" + month + "-" + day;
+
+    return fullDate;
 }
 
 string AuxiliaryMethods::changeFirstLetterToBigAndRestToSmall(string text)
