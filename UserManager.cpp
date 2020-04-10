@@ -12,11 +12,11 @@ User UserManager::enterNewUserData()
 
     cout << "Podaj imie: ";
     name = AuxiliaryMethods::enterLine();
-    user.setName(name);
+    user.setName(AuxiliaryMethods::changeFirstLetterToBigAndRestToSmall(name));
 
     cout << "Podaj nazwisko: ";
     surname = AuxiliaryMethods::enterLine();
-    user.setSurname(surname);
+    user.setSurname(AuxiliaryMethods::changeFirstLetterToBigAndRestToSmall(surname));
 
     do
     {
@@ -111,4 +111,17 @@ void UserManager::displayAllUsers()
         cout << users[i].getLogin() << "|";
         cout << users[i].getPassword() << endl;
     }
+}
+
+bool UserManager::isUserLoggedIn()
+{
+    if (idOfLoggedUser > 0)
+        return true;
+    else
+        return false;
+}
+
+int UserManager::getIdOfLoggedUser()
+{
+    return idOfLoggedUser;
 }

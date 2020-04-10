@@ -5,17 +5,22 @@
 #include <vector>
 #include "Income.h"
 #include "XMLFile.h"
+#include "AuxiliaryMethods.h"
+#include "Markup.h"
 
 using namespace std;
 
 class FileWithIncomes : public XMLFile
 {
+    int lastIncomeId;
+
     Income getIncomeFromFile();
 
 public:
     FileWithIncomes(string fileName) : XMLFile(fileName) {}
-    void saveIncomeToFile();
-    int loadIncomesFromFile();
+    void saveIncomeToFile(Income income);
+    vector<Income> loadIncomesFromFile(int idOfLoggedUser);
+    int getIdOfLastIncome();
 };
 
 #endif

@@ -31,6 +31,8 @@ public:
     void userLogout();
     void changePassword();
     void displayAllUsers();
+    bool isUserLoggedIn();
+    int getIdOfLoggedUser();
 };
 
 #endif
