@@ -80,3 +80,8 @@ void ExpensesManager::displayExpenses()
     }
     system("pause");
 }
+
+vector<Expense> ExpensesManager::getExpenses()
+{
+    return expenses;
+}

@@ -82,3 +82,8 @@ void IncomesManager::displayIncomes()
     }
     system("pause");
 }
+
+vector<Income> IncomesManager::getIncomes()
+{
+    return incomes;
+}
