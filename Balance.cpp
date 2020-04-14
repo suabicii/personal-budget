@@ -1,6 +1,6 @@
 #include "Balance.h"
 
-void Balance::displayIncomes()
+void Balance::displayIncomes(vector<Income> incomes)
 {
     cout << "----------------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < incomes.size(); i++)
@@ -14,7 +14,7 @@ void Balance::displayIncomes()
     }
 }
 
-void Balance::displayExpenses()
+void Balance::displayExpenses(vector<Expense> expenses)
 {
     cout << "----------------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < expenses.size(); i++)
@@ -28,6 +28,38 @@ void Balance::displayExpenses()
     }
 }
 
+vector<Income> Balance::getIncomesFromCurrentMonth()
+{
+    int currentDate = AuxiliaryMethods::convertDateInStringToInt(AuxiliaryMethods::getCurrentDate());
+    vector<Income> incomesFromCurrentMonth;
+    vector<Income>::iterator it = incomes.begin();
+    // 20200414 / 100 + 1
+    // 20200400 + 1
+    int beginningOfMonth = (currentDate / 100) * 100;
+
+    for (it; it != incomes.end(); it++)
+    {
+        if (it->getDate() >= beginningOfMonth && it->getDate() <= currentDate)
+            incomesFromCurrentMonth.push_back(*it);
+    }
+    return incomesFromCurrentMonth;
+}
+
+vector<Expense> Balance::getExpensesFromCurrentMonth()
+{
+    int currentDate = AuxiliaryMethods::convertDateInStringToInt(AuxiliaryMethods::getCurrentDate());
+    vector<Expense> expensesFromCurrentMonth;
+    vector<Expense>::iterator it = expenses.begin();
+    int beginningOfMonth = (currentDate / 100) * 100;
+
+    for (it; it != expenses.end(); it++)
+    {
+        if (it->getDate() >= beginningOfMonth && it->getDate() <= currentDate)
+            expensesFromCurrentMonth.push_back(*it);
+    }
+    return expensesFromCurrentMonth;
+}
+
 float Balance::countBalanceFromCurrentMonth()
 {
     system("cls");
@@ -35,10 +67,10 @@ float Balance::countBalanceFromCurrentMonth()
     cout << endl;
 
     cout << "Przychody:" << endl;
-    displayIncomes();
+    displayIncomes(getIncomesFromCurrentMonth());
 
-    cout << "Wydadtki: " << endl;
-    displayExpenses();
+    cout << "Wydatki: " << endl;
+    displayExpenses(getExpensesFromCurrentMonth());
 
     return 0;
 }

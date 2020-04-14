@@ -20,8 +20,10 @@ class Balance
     const string NAME_OF_FILE_WITH_INCOMES;
     const string NAME_OF_FILE_WITH_EXPENSES;
 
-    void displayIncomes();
-    void displayExpenses();
+    void displayIncomes(vector<Income> incomes);
+    void displayExpenses(vector<Expense> expenses);
+    vector<Income> getIncomesFromCurrentMonth();
+    vector<Expense> getExpensesFromCurrentMonth();
 
 public:
     Balance(string nameOfFileWithIncomes, string nameOfFileWithExpenses, int idOfLoggedUser)
