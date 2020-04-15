@@ -50,8 +50,5 @@ void PersonalBudget::displayExpenses()
 
 void PersonalBudget::showBalanceFromCurrentMonth()
 {
-    float ballanceFromCurrentMonth = balance->countBalanceFromCurrentMonth();
-
-    cout << "Wynik: " << ballanceFromCurrentMonth << endl;
-    system("pause");
+    balance->getBalanceFromCurrentMonth();
 }

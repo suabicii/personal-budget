@@ -94,11 +94,11 @@ float Balance::sumExpenses(vector<Expense> expensesToSum)
     return sum;
 }
 
-float Balance::countBalanceFromCurrentMonth()
+void Balance::getBalanceFromCurrentMonth()
 {
     vector<Income> incomesFromCurrentMonth = getIncomesFromCurrentMonth();
     vector<Expense> expensesFromCurrentMonth = getExpensesFromCurrentMonth();
-    float balanceFromCurrentMonth = 0;
+    float finalResult = 0;
     float sumOfIncomes = 0;
     float sumOfExpenses = 0;
 
@@ -120,7 +120,8 @@ float Balance::countBalanceFromCurrentMonth()
     cout << "Suma: " << sumOfExpenses << endl;
     cout << endl;
 
-    balanceFromCurrentMonth = sumOfIncomes - sumOfExpenses;
+    finalResult = sumOfIncomes - sumOfExpenses;
 
-    return balanceFromCurrentMonth;
+    cout << "Wynik: " << finalResult << endl;
+    system("pause");
 }

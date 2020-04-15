@@ -43,5 +43,5 @@ public:
         delete incomesManager;
         delete expensesManager;
     }
-    float countBalanceFromCurrentMonth();
+    void getBalanceFromCurrentMonth();
 };
