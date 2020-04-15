@@ -72,12 +72,39 @@ void Balance::sortIncomesAndExpencesByDate(vector<Income> &incomesToSort, vector
          });
 }
 
+float Balance::sumIncomes(vector<Income> incomesToSum)
+{
+    float sum = 0;
+
+    for (int i = 0; i < incomesToSum.size(); i++)
+    {
+        sum += incomesToSum[i].getAmount();
+    }
+    return sum;
+}
+
+float Balance::sumExpenses(vector<Expense> expensesToSum)
+{
+    float sum = 0;
+
+    for (int i = 0; i < expensesToSum.size(); i++)
+    {
+        sum += expensesToSum[i].getAmount();
+    }
+    return sum;
+}
+
 float Balance::countBalanceFromCurrentMonth()
 {
     vector<Income> incomesFromCurrentMonth = getIncomesFromCurrentMonth();
     vector<Expense> expensesFromCurrentMonth = getExpensesFromCurrentMonth();
+    float balanceFromCurrentMonth = 0;
+    float sumOfIncomes = 0;
+    float sumOfExpenses = 0;
 
     sortIncomesAndExpencesByDate(incomesFromCurrentMonth, expensesFromCurrentMonth);
+    sumOfIncomes = sumIncomes(incomesFromCurrentMonth);
+    sumOfExpenses = sumExpenses(expensesFromCurrentMonth);
 
     system("cls");
     cout << " >>> BILANS Z BIEZACEGO MIESIACA <<<" << endl;
@@ -85,9 +112,15 @@ float Balance::countBalanceFromCurrentMonth()
 
     cout << "Przychody:" << endl;
     displayIncomes(incomesFromCurrentMonth);
+    cout << "Suma: " << sumOfIncomes << endl;
+    cout << endl;
 
     cout << "Wydatki: " << endl;
     displayExpenses(expensesFromCurrentMonth);
+    cout << "Suma: " << sumOfExpenses << endl;
+    cout << endl;
 
-    return 0;
+    balanceFromCurrentMonth = sumOfIncomes - sumOfExpenses;
+
+    return balanceFromCurrentMonth;
 }

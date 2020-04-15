@@ -26,6 +26,8 @@ class Balance
     vector<Income> getIncomesFromCurrentMonth();
     vector<Expense> getExpensesFromCurrentMonth();
     void sortIncomesAndExpencesByDate(vector<Income> &incomesToSort, vector<Expense> &expensesToSort);
+    float sumIncomes(vector<Income> incomesToSum);
+    float sumExpenses(vector<Expense> expensesToSum);
 
 public:
     Balance(string nameOfFileWithIncomes, string nameOfFileWithExpenses, int idOfLoggedUser)
