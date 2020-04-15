@@ -35,7 +35,7 @@ vector<Income> Balance::getIncomesFromCurrentMonth()
     vector<Income>::iterator it = incomes.begin();
     // 20200414 / 100 + 1
     // 20200400 + 1
-    int beginningOfMonth = (currentDate / 100) * 100;
+    int beginningOfMonth = ((currentDate / 100) * 100) + 1;
 
     for (it; it != incomes.end(); it++)
     {
@@ -50,7 +50,7 @@ vector<Expense> Balance::getExpensesFromCurrentMonth()
     int currentDate = AuxiliaryMethods::convertDateInStringToInt(AuxiliaryMethods::getCurrentDate());
     vector<Expense> expensesFromCurrentMonth;
     vector<Expense>::iterator it = expenses.begin();
-    int beginningOfMonth = (currentDate / 100) * 100;
+    int beginningOfMonth = ((currentDate / 100) * 100) + 1;
 
     for (it; it != expenses.end(); it++)
     {
@@ -60,17 +60,34 @@ vector<Expense> Balance::getExpensesFromCurrentMonth()
     return expensesFromCurrentMonth;
 }
 
+void Balance::sortIncomesAndExpencesByDate(vector<Income> &incomesToSort, vector<Expense> &expensesToSort)
+{
+    sort(incomesToSort.begin(), incomesToSort.end(),
+         [](Income &income1, Income &income2) {
+             return (income1.getDate() < income2.getDate());
+         });
+    sort(expensesToSort.begin(), expensesToSort.end(),
+         [](Expense &expense1, Expense &expense2) {
+             return (expense1.getDate() < expense2.getDate());
+         });
+}
+
 float Balance::countBalanceFromCurrentMonth()
 {
+    vector<Income> incomesFromCurrentMonth = getIncomesFromCurrentMonth();
+    vector<Expense> expensesFromCurrentMonth = getExpensesFromCurrentMonth();
+
+    sortIncomesAndExpencesByDate(incomesFromCurrentMonth, expensesFromCurrentMonth);
+
     system("cls");
     cout << " >>> BILANS Z BIEZACEGO MIESIACA <<<" << endl;
     cout << endl;
 
     cout << "Przychody:" << endl;
-    displayIncomes(getIncomesFromCurrentMonth());
+    displayIncomes(incomesFromCurrentMonth);
 
     cout << "Wydatki: " << endl;
-    displayExpenses(getExpensesFromCurrentMonth());
+    displayExpenses(expensesFromCurrentMonth);
 
     return 0;
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <Windows.h>
+#include <algorithm>
 #include "User.h"
 #include "Expense.h"
 #include "Income.h"
@@ -24,6 +25,7 @@ class Balance
     void displayExpenses(vector<Expense> expenses);
     vector<Income> getIncomesFromCurrentMonth();
     vector<Expense> getExpensesFromCurrentMonth();
+    void sortIncomesAndExpencesByDate(vector<Income> &incomesToSort, vector<Expense> &expensesToSort);
 
 public:
     Balance(string nameOfFileWithIncomes, string nameOfFileWithExpenses, int idOfLoggedUser)
