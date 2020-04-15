@@ -71,7 +71,7 @@ int main()
                 personalBudget.displayExpenses();
                 break;
             case '3':
-                /* code */
+                personalBudget.showBalanceFromCurrentMonth();
                 break;
             case '4':
                 /* code */

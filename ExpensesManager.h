@@ -28,6 +28,7 @@ public:
     void addExpense();
     void loadExpensesFromFile();
     void displayExpenses();
+    vector<Expense> getExpenses();
 };
 
 #endif
