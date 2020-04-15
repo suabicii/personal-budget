@@ -40,4 +40,5 @@ public:
     void displayIncomes();
     void displayExpenses();
     void showBalanceFromCurrentMonth();
+    void showBalanceFromPreviousMonth();
 };

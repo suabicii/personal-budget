@@ -40,15 +40,15 @@ Income IncomesManager::addDataOfIncome()
 
         if (choice == '1')
         {
-            currentDate = AuxiliaryMethods::getCurrentDate();
-            income.setDate(AuxiliaryMethods::convertDateInStringToInt(currentDate));
+            currentDate = OperationsOnDates::getCurrentDate();
+            income.setDate(OperationsOnDates::convertDateInStringToInt(currentDate));
             break;
         }
         else if (choice == '2')
         {
             cout << "Podaj date przychodu (format: rrrr-mm-dd): ";
-            date = AuxiliaryMethods::addDate();
-            income.setDate(AuxiliaryMethods::convertDateInStringToInt(date));
+            date = OperationsOnDates::addDate();
+            income.setDate(OperationsOnDates::convertDateInStringToInt(date));
             break;
         }
         else

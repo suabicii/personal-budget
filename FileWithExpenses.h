@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "Expense.h"
-#include "AuxiliaryMethods.h"
+#include "OperationsOnDates.h"
 #include "XMLFile.h"
 
 using namespace std;

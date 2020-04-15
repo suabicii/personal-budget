@@ -8,6 +8,7 @@
 #include "Expense.h"
 #include "FileWithExpenses.h"
 #include "AuxiliaryMethods.h"
+#include "OperationsOnDates.h"
 
 using namespace std;
 

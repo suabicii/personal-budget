@@ -21,7 +21,7 @@ void FileWithExpenses::saveExpenseToFile(Expense expense)
     xml.IntoElem();
     xml.AddElem("expenseId", expense.getId());
     xml.AddElem("userId", expense.getUserId());
-    xml.AddElem("date", AuxiliaryMethods::convertDateInIntToString(expense.getDate()));
+    xml.AddElem("date", OperationsOnDates::convertDateInIntToString(expense.getDate()));
     xml.AddElem("item", expense.getItem());
     xml.AddElem("amount", expense.getAmount());
 
@@ -50,7 +50,7 @@ Expense FileWithExpenses::getExpenseFromFile()
     xml.FindElem("userId");
     expense.setUserId(atoi(MCD_2PCSZ(xml.GetData())));
     xml.FindElem("date");
-    expense.setDate(AuxiliaryMethods::convertDateInStringToInt(MCD_2PCSZ(xml.GetData())));
+    expense.setDate(OperationsOnDates::convertDateInStringToInt(MCD_2PCSZ(xml.GetData())));
     xml.FindElem("item");
     expense.setItem(MCD_2PCSZ(xml.GetData()));
     xml.FindElem("amount");

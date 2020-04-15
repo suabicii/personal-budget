@@ -8,6 +8,7 @@
 #include "Income.h"
 #include "FileWithIncomes.h"
 #include "AuxiliaryMethods.h"
+#include "OperationsOnDates.h"
 
 using namespace std;
 
