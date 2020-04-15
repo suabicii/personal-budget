@@ -5,7 +5,7 @@
 #include <vector>
 #include "Income.h"
 #include "XMLFile.h"
-#include "AuxiliaryMethods.h"
+#include "OperationsOnDates.h"
 #include "Markup.h"
 
 using namespace std;

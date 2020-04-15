@@ -40,15 +40,15 @@ Expense ExpensesManager::addDataOfExpense()
 
         if (choice == '1')
         {
-            currentDate = AuxiliaryMethods::getCurrentDate();
-            expense.setDate(AuxiliaryMethods::convertDateInStringToInt(currentDate));
+            currentDate = OperationsOnDates::getCurrentDate();
+            expense.setDate(OperationsOnDates::convertDateInStringToInt(currentDate));
             break;
         }
         else if (choice == '2')
         {
             cout << "Podaj date wydatku (format: rrrr-mm-dd): ";
-            date = AuxiliaryMethods::addDate();
-            expense.setDate(AuxiliaryMethods::convertDateInStringToInt(date));
+            date = OperationsOnDates::addDate();
+            expense.setDate(OperationsOnDates::convertDateInStringToInt(date));
             break;
         }
         else

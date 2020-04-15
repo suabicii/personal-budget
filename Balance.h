@@ -2,12 +2,12 @@
 #include <vector>
 #include <Windows.h>
 #include <algorithm>
-#include "User.h"
 #include "Expense.h"
 #include "Income.h"
 #include "IncomesManager.h"
 #include "ExpensesManager.h"
 #include "AuxiliaryMethods.h"
+#include "OperationsOnDates.h"
 
 using namespace std;
 
@@ -20,18 +20,21 @@ class Balance
     const int ID_OF_LOGGED_USER;
     const string NAME_OF_FILE_WITH_INCOMES;
     const string NAME_OF_FILE_WITH_EXPENSES;
+    const int CURRENT_DATE;
 
-    void displayIncomes(vector<Income> incomes);
-    void displayExpenses(vector<Expense> expenses);
+    void displayIncomes(vector<Income> incomesToDisplay);
+    void displayExpenses(vector<Expense> expensesToDisplay);
     vector<Income> getIncomesFromCurrentMonth();
     vector<Expense> getExpensesFromCurrentMonth();
+    vector<Income> getIncomesFromPreviousMonth();
+    vector<Expense> getExpensesFromPreviousMonth();
     void sortIncomesAndExpencesByDate(vector<Income> &incomesToSort, vector<Expense> &expensesToSort);
     float sumIncomes(vector<Income> incomesToSum);
     float sumExpenses(vector<Expense> expensesToSum);
 
 public:
     Balance(string nameOfFileWithIncomes, string nameOfFileWithExpenses, int idOfLoggedUser)
-        : ID_OF_LOGGED_USER(idOfLoggedUser), NAME_OF_FILE_WITH_INCOMES(nameOfFileWithIncomes), NAME_OF_FILE_WITH_EXPENSES(nameOfFileWithExpenses)
+        : ID_OF_LOGGED_USER(idOfLoggedUser), NAME_OF_FILE_WITH_INCOMES(nameOfFileWithIncomes), NAME_OF_FILE_WITH_EXPENSES(nameOfFileWithExpenses), CURRENT_DATE(OperationsOnDates::convertDateInStringToInt(OperationsOnDates::getCurrentDate()))
     {
         incomesManager = new IncomesManager(NAME_OF_FILE_WITH_INCOMES, ID_OF_LOGGED_USER);
         expensesManager = new ExpensesManager(NAME_OF_FILE_WITH_EXPENSES, ID_OF_LOGGED_USER);
@@ -44,4 +47,5 @@ public:
         delete expensesManager;
     }
     void getBalanceFromCurrentMonth();
+    void getBalanceFromPreviousMonth();
 };

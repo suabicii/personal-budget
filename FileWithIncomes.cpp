@@ -21,7 +21,7 @@ void FileWithIncomes::saveIncomeToFile(Income income)
     xml.IntoElem();
     xml.AddElem("incomeId", income.getId());
     xml.AddElem("userId", income.getUserId());
-    xml.AddElem("date", AuxiliaryMethods::convertDateInIntToString(income.getDate()));
+    xml.AddElem("date", OperationsOnDates::convertDateInIntToString(income.getDate()));
     xml.AddElem("item", income.getItem());
     xml.AddElem("amount", income.getAmount());
 
@@ -50,7 +50,7 @@ Income FileWithIncomes::getIncomeFromFile()
     xml.FindElem("userId");
     income.setUserId(atoi(MCD_2PCSZ(xml.GetData())));
     xml.FindElem("date");
-    income.setDate(AuxiliaryMethods::convertDateInStringToInt(MCD_2PCSZ(xml.GetData())));
+    income.setDate(OperationsOnDates::convertDateInStringToInt(MCD_2PCSZ(xml.GetData())));
     xml.FindElem("item");
     income.setItem(MCD_2PCSZ(xml.GetData()));
     xml.FindElem("amount");
