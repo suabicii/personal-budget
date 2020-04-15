@@ -126,11 +126,68 @@ void Balance::getBalanceFromCurrentMonth()
 
 vector<Income> Balance::getIncomesFromPreviousMonth()
 {
-    vector<Income> incomesFromPreviousMonth();
+    vector<Income> incomesFromPreviousMonth;
     vector<Income>::iterator it = incomes.begin();
-    int beginningOfPreviousMonth;
+    int beginningOfPreviousMonth = ((CURRENT_DATE / 100) * 100 - 100) + 1;
+    ;
+    int previousMonth = OperationsOnDates::getMonth(OperationsOnDates::convertDateInIntToString(beginningOfPreviousMonth));
+    int previousYear = OperationsOnDates::getYear(OperationsOnDates::convertDateInIntToString(beginningOfPreviousMonth));
+    int endOfPreviousMonth = beginningOfPreviousMonth + OperationsOnDates::getAmountOfDaysInMonth(previousMonth, previousYear) - 1;
+
+    for (it; it != incomes.end(); it++)
+    {
+        if (it->getDate() >= beginningOfPreviousMonth && it->getDate() <= endOfPreviousMonth)
+            incomesFromPreviousMonth.push_back(*it);
+    }
+    return incomesFromPreviousMonth;
 }
 
 vector<Expense> Balance::getExpensesFromPreviousMonth()
 {
+    vector<Expense> expensesFromPreviousMonth;
+    vector<Expense>::iterator it = expenses.begin();
+    int beginningOfPreviousMonth = ((CURRENT_DATE / 100) * 100 - 100) + 1;
+    ;
+    int previousMonth = OperationsOnDates::getMonth(OperationsOnDates::convertDateInIntToString(beginningOfPreviousMonth));
+    int previousYear = OperationsOnDates::getYear(OperationsOnDates::convertDateInIntToString(beginningOfPreviousMonth));
+    int endOfPreviousMonth = beginningOfPreviousMonth + OperationsOnDates::getAmountOfDaysInMonth(previousMonth, previousYear) - 1;
+
+    for (it; it != expenses.end(); it++)
+    {
+        if (it->getDate() >= beginningOfPreviousMonth && it->getDate() <= endOfPreviousMonth)
+            expensesFromPreviousMonth.push_back(*it);
+    }
+    return expensesFromPreviousMonth;
+}
+
+void Balance::getBalanceFromPreviousMonth()
+{
+    vector<Income> incomesFromPreviousMonth = getIncomesFromPreviousMonth();
+    vector<Expense> expensesFromPreviousMonth = getExpensesFromPreviousMonth();
+    float finalResult = 0;
+    float sumOfIncomes = 0;
+    float sumOfExpenses = 0;
+
+    sortIncomesAndExpencesByDate(incomesFromPreviousMonth, expensesFromPreviousMonth);
+    sumOfIncomes = sumIncomes(incomesFromPreviousMonth);
+    sumOfExpenses = sumExpenses(expensesFromPreviousMonth);
+
+    system("cls");
+    cout << " >>> BILANS Z POPRZEDNIEGO MIESIACA <<<" << endl;
+    cout << endl;
+
+    cout << "Przychody:" << endl;
+    displayIncomes(incomesFromPreviousMonth);
+    cout << "Suma: " << sumOfIncomes << endl;
+    cout << endl;
+
+    cout << "Wydatki: " << endl;
+    displayExpenses(expensesFromPreviousMonth);
+    cout << "Suma: " << sumOfExpenses << endl;
+    cout << endl;
+
+    finalResult = sumOfIncomes - sumOfExpenses;
+
+    cout << "Wynik: " << finalResult << endl;
+    system("pause");
 }

@@ -72,7 +72,7 @@ int main()
                 personalBudget.showBalanceFromCurrentMonth();
                 break;
             case '4':
-                /* code */
+                personalBudget.showBalanceFromPreviousMonth();
                 break;
             case '5':
                 /* code */

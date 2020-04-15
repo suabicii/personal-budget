@@ -52,3 +52,8 @@ void PersonalBudget::showBalanceFromCurrentMonth()
 {
     balance->getBalanceFromCurrentMonth();
 }
+
+void PersonalBudget::showBalanceFromPreviousMonth()
+{
+    balance->getBalanceFromPreviousMonth();
+}
