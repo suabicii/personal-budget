@@ -8,6 +8,7 @@ void FileWithUsers::writeUserToFile(User user)
     {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("users");
+        xml.IntoElem();
     }
     else
     {
@@ -68,4 +69,14 @@ vector<User> FileWithUsers::loadUsersFromFile()
     }
 
     return users;
+}
+
+void FileWithUsers::writeAllUsersToFile(vector<User> &users)
+{
+    vector<User>::iterator it = users.begin();
+
+    remove(getFileName().c_str());
+
+    for (it; it != users.end(); it++)
+        writeUserToFile(*it);
 }

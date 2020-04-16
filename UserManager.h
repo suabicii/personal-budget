@@ -29,10 +29,10 @@ public:
     void registerNewUser();
     void userLogging();
     void userLogout();
-    void changePassword();
     void displayAllUsers();
     bool isUserLoggedIn();
     int getIdOfLoggedUser();
+    void changePassword();
 };
 
 #endif

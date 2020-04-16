@@ -75,10 +75,10 @@ int main()
                 personalBudget.showBalanceFromPreviousMonth();
                 break;
             case '5':
-                /* code */
+                personalBudget.showBalanceFromAnyPeriod();
                 break;
             case '6':
-                /* code */
+                personalBudget.changePassword();
                 break;
             case '7':
                 personalBudget.userLogout();

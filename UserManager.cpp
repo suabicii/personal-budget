@@ -125,3 +125,23 @@ int UserManager::getIdOfLoggedUser()
 {
     return idOfLoggedUser;
 }
+
+void UserManager::changePassword()
+{
+    string newPassword = "";
+    vector<User>::iterator it = users.begin();
+
+    cout << "Podaj nowe haslo: ";
+    newPassword = AuxiliaryMethods::enterLine();
+
+    for (it; it != users.end(); it++)
+    {
+        if (it->getId() == idOfLoggedUser)
+        {
+            it->setPassword(newPassword);
+            cout << "Haslo zostalo zmienione" << endl;
+            Sleep(1500);
+        }
+    }
+    fileWithUsers.writeAllUsersToFile(users);
+}

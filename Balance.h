@@ -28,6 +28,8 @@ class Balance
     vector<Expense> getExpensesFromCurrentMonth();
     vector<Income> getIncomesFromPreviousMonth();
     vector<Expense> getExpensesFromPreviousMonth();
+    vector<Income> getIncomesFromAnyPeriod(int startDate, int endDate);
+    vector<Expense> getExpensesFromAnyPeriod(int startDate, int endDate);
     void sortIncomesAndExpencesByDate(vector<Income> &incomesToSort, vector<Expense> &expensesToSort);
     float sumIncomes(vector<Income> incomesToSum);
     float sumExpenses(vector<Expense> expensesToSum);
@@ -48,4 +50,5 @@ public:
     }
     void getBalanceFromCurrentMonth();
     void getBalanceFromPreviousMonth();
+    void getBalanceFromAnyPeriod();
 };

@@ -35,10 +35,12 @@ public:
     void registerNewUser();
     bool userLogging();
     void userLogout();
+    void changePassword();
     void addIncome();
     void addExpense();
     void displayIncomes();
     void displayExpenses();
     void showBalanceFromCurrentMonth();
     void showBalanceFromPreviousMonth();
+    void showBalanceFromAnyPeriod();
 };
