@@ -124,15 +124,21 @@ void Balance::getBalanceFromCurrentMonth()
     system("pause");
 }
 
+void Balance::getPreviousMonth(int &beginningOfPreviousMonth, int &endOfPreviousMonth)
+{
+    beginningOfPreviousMonth = ((CURRENT_DATE / 100) * 100 - 100) + 1;
+    int previousMonth = OperationsOnDates::getMonth(OperationsOnDates::convertDateInIntToString(beginningOfPreviousMonth));
+    int previousYear = OperationsOnDates::getYear(OperationsOnDates::convertDateInIntToString(beginningOfPreviousMonth));
+    endOfPreviousMonth = beginningOfPreviousMonth + OperationsOnDates::getAmountOfDaysInMonth(previousMonth, previousYear) - 1;
+}
+
 vector<Income> Balance::getIncomesFromPreviousMonth()
 {
     vector<Income> incomesFromPreviousMonth;
     vector<Income>::iterator it = incomes.begin();
-    int beginningOfPreviousMonth = ((CURRENT_DATE / 100) * 100 - 100) + 1;
-    ;
-    int previousMonth = OperationsOnDates::getMonth(OperationsOnDates::convertDateInIntToString(beginningOfPreviousMonth));
-    int previousYear = OperationsOnDates::getYear(OperationsOnDates::convertDateInIntToString(beginningOfPreviousMonth));
-    int endOfPreviousMonth = beginningOfPreviousMonth + OperationsOnDates::getAmountOfDaysInMonth(previousMonth, previousYear) - 1;
+    int beginningOfPreviousMonth = 0;
+    int endOfPreviousMonth = 0;
+    getPreviousMonth(beginningOfPreviousMonth, endOfPreviousMonth);
 
     for (it; it != incomes.end(); it++)
     {
@@ -146,11 +152,9 @@ vector<Expense> Balance::getExpensesFromPreviousMonth()
 {
     vector<Expense> expensesFromPreviousMonth;
     vector<Expense>::iterator it = expenses.begin();
-    int beginningOfPreviousMonth = ((CURRENT_DATE / 100) * 100 - 100) + 1;
-    ;
-    int previousMonth = OperationsOnDates::getMonth(OperationsOnDates::convertDateInIntToString(beginningOfPreviousMonth));
-    int previousYear = OperationsOnDates::getYear(OperationsOnDates::convertDateInIntToString(beginningOfPreviousMonth));
-    int endOfPreviousMonth = beginningOfPreviousMonth + OperationsOnDates::getAmountOfDaysInMonth(previousMonth, previousYear) - 1;
+    int beginningOfPreviousMonth = 0;
+    int endOfPreviousMonth = 0;
+    getPreviousMonth(beginningOfPreviousMonth, endOfPreviousMonth);
 
     for (it; it != expenses.end(); it++)
     {

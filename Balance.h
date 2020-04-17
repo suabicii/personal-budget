@@ -26,6 +26,7 @@ class Balance
     void displayExpenses(vector<Expense> expensesToDisplay);
     vector<Income> getIncomesFromCurrentMonth();
     vector<Expense> getExpensesFromCurrentMonth();
+    void getPreviousMonth(int &beginningOfPreviousMonth, int &endOfPreviousMonth);
     vector<Income> getIncomesFromPreviousMonth();
     vector<Expense> getExpensesFromPreviousMonth();
     vector<Income> getIncomesFromAnyPeriod(int startDate, int endDate);
