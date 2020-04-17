@@ -25,6 +25,8 @@ void FileWithExpenses::saveExpenseToFile(Expense expense)
     xml.AddElem("item", expense.getItem());
     xml.AddElem("amount", expense.getAmount());
 
+    lastExpenseId++;
+
     xml.Save(MCD_2PCSZ(getFileName()));
 }
 
