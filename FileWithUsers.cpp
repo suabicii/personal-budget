@@ -71,7 +71,7 @@ vector<User> FileWithUsers::loadUsersFromFile()
     return users;
 }
 
-void FileWithUsers::writeAllUsersToFile(vector<User> &users)
+void FileWithUsers::updateFile(vector<User> &users)
 {
     vector<User>::iterator it = users.begin();
 

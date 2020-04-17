@@ -143,5 +143,5 @@ void UserManager::changePassword()
             Sleep(1500);
         }
     }
-    fileWithUsers.writeAllUsersToFile(users);
+    fileWithUsers.updateFile(users);
 }

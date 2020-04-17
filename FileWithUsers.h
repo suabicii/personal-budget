@@ -15,7 +15,7 @@ public:
     FileWithUsers(string fileName) : XMLFile(fileName) {}
     void writeUserToFile(User user);
     vector<User> loadUsersFromFile();
-    void writeAllUsersToFile(vector<User> &users);
+    void updateFile(vector<User> &users);
 };
 
 #endif
