@@ -27,8 +27,6 @@ public:
         expenses = fileWithExpenses.loadExpensesFromFile(ID_OF_LOGGED_USER);
     }
     void addExpense();
-    void loadExpensesFromFile();
-    void displayExpenses();
     vector<Expense> getExpenses();
 };
 

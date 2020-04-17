@@ -27,8 +27,6 @@ public:
     {
         delete incomesManager;
         delete expensesManager;
-        delete balance;
-        balance = NULL;
         incomesManager = NULL;
         expensesManager = NULL;
     }
@@ -38,8 +36,6 @@ public:
     void changePassword();
     void addIncome();
     void addExpense();
-    void displayIncomes();
-    void displayExpenses();
     void showBalanceFromCurrentMonth();
     void showBalanceFromPreviousMonth();
     void showBalanceFromAnyPeriod();
