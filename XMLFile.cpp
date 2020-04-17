@@ -3,7 +3,7 @@
 bool XMLFile::isFileEmpty(string fileName)
 {
     CMarkup xml;
-    if (!xml.Load(fileName))
+    if (!xml.Load(MCD_2PCSZ(fileName)))
         return true;
     else
         return false;

@@ -40,16 +40,6 @@ void PersonalBudget::addExpense()
     expensesManager->addExpense();
 }
 
-void PersonalBudget::displayIncomes()
-{
-    incomesManager->displayIncomes();
-}
-
-void PersonalBudget::displayExpenses()
-{
-    expensesManager->displayExpenses();
-}
-
 void PersonalBudget::showBalanceFromCurrentMonth()
 {
     balance = new Balance(NAME_OF_FILE_WITH_INCOMES, NAME_OF_FILE_WITH_EXPENSES, userManager.getIdOfLoggedUser());

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <windows.h>
-#include "Markup.h"
 #include "PersonalBudget.h"
 #include "AuxiliaryMethods.h"
 
@@ -8,7 +7,6 @@ using namespace std;
 
 int main()
 {
-    CMarkup xml;
     PersonalBudget personalBudget("users.xml", "incomes.xml", "expenses.xml");
     char choice;
     bool isUserLoggedIn = false;

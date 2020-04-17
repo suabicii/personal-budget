@@ -25,8 +25,6 @@ public:
         incomes = fileWithIncomes.loadIncomesFromFile(ID_OF_LOGGED_USER);
     }
     void addIncome();
-    void loadIncomesFromFile();
-    void displayIncomes();
     vector<Income> getIncomes();
 };
 

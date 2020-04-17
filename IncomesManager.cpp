@@ -69,20 +69,6 @@ Income IncomesManager::addDataOfIncome()
     return income;
 }
 
-void IncomesManager::displayIncomes()
-{
-    cout << "Przychody:" << endl;
-    for (int i = 0; i < incomes.size(); i++)
-    {
-        cout << "id: " << incomes[i].getId() << "|";
-        cout << "id uzytkownika: " << incomes[i].getUserId() << "|";
-        cout << "Data: " << incomes[i].getDate() << "|";
-        cout << "Rodzaj: " << incomes[i].getItem() << "|";
-        cout << "Wysokosc: " << incomes[i].getAmount() << endl;
-    }
-    system("pause");
-}
-
 vector<Income> IncomesManager::getIncomes()
 {
     return incomes;

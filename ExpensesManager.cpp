@@ -69,18 +69,6 @@ Expense ExpensesManager::addDataOfExpense()
     return expense;
 }
 
-void ExpensesManager::displayExpenses()
-{
-    cout << "Wydatki:" << endl;
-    for (int i = 0; i < expenses.size(); i++)
-    {
-        cout << "Data: " << expenses[i].getDate() << "|";
-        cout << "Rodzaj: " << expenses[i].getItem() << "|";
-        cout << "Wysokosc: " << expenses[i].getAmount() << endl;
-    }
-    system("pause");
-}
-
 vector<Expense> ExpensesManager::getExpenses()
 {
     return expenses;
