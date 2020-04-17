@@ -62,7 +62,7 @@ Income IncomesManager::addDataOfIncome()
     item = AuxiliaryMethods::enterLine();
     income.setItem(item);
 
-    cout << "Podaj wyosokosc przychodu: ";
+    cout << "Podaj kwote przychodu: ";
     cin >> amount;
     income.setAmount(amount);
 

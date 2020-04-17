@@ -25,6 +25,8 @@ void FileWithIncomes::saveIncomeToFile(Income income)
     xml.AddElem("item", income.getItem());
     xml.AddElem("amount", income.getAmount());
 
+    lastIncomeId++;
+
     xml.Save(MCD_2PCSZ(getFileName()));
 }
 
