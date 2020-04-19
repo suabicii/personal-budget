@@ -28,10 +28,13 @@ char AuxiliaryMethods::enterChar()
         if (entry.length() == 1)
         {
             sign = entry[0];
-            break;
+            entry.clear();
         }
-        else
+
+        if (!entry.empty())
             cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
+        else
+            break;
     }
     return sign;
 }
