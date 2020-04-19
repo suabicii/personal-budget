@@ -8,6 +8,14 @@ string AuxiliaryMethods::convertIntToString(int number)
     return str;
 }
 
+string AuxiliaryMethods::convertFloatToString(float number)
+{
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
+
 char AuxiliaryMethods::enterChar()
 {
     string entry = "";
@@ -43,6 +51,36 @@ int AuxiliaryMethods::enterInteger()
         if (!entry.empty())
             cout << "To nie jest liczba. Wpisz ponownie. " << endl;
     }
+    return number;
+}
+
+float AuxiliaryMethods::enterFloat()
+{
+    string entry;
+    float number = 0;
+
+    while (true)
+    {
+        getline(cin, entry);
+
+        for (int i = 0; i < entry.length(); i++)
+        {
+            if (!(entry[i] == '.' || entry[i] == ',' || (entry[i] >= '0' && entry[i] <= '9')))
+            {
+                cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+                entry.clear();
+                break;
+            }
+            if (entry[i] == ',')
+                entry[i] = '.';
+        }
+
+        if (!entry.empty())
+            break;
+    }
+
+    number = atof(entry.c_str());
+
     return number;
 }
 

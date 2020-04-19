@@ -63,7 +63,7 @@ Expense ExpensesManager::addDataOfExpense()
     expense.setItem(item);
 
     cout << "Podaj kwote wydatku: ";
-    cin >> amount;
+    amount = AuxiliaryMethods::enterFloat();
     expense.setAmount(amount);
 
     return expense;
