@@ -63,7 +63,7 @@ Income IncomesManager::addDataOfIncome()
     income.setItem(item);
 
     cout << "Podaj kwote przychodu: ";
-    cin >> amount;
+    amount = AuxiliaryMethods::enterFloat();
     income.setAmount(amount);
 
     return income;

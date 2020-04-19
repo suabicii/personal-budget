@@ -17,6 +17,7 @@ public:
     static string convertIntToString(int number);
     static char enterChar();
     static int enterInteger();
+    static float enterFloat();
     static string enterNumber();
     static string enterLine();
     static string changeFirstLetterToBigAndRestToSmall(string text);
