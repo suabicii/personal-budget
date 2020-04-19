@@ -103,16 +103,6 @@ void UserManager::userLogging()
     Sleep(1500);
 }
 
-void UserManager::displayAllUsers()
-{
-    for (int i = 0; i < users.size(); i++)
-    {
-        cout << users[i].getId() << "|";
-        cout << users[i].getLogin() << "|";
-        cout << users[i].getPassword() << endl;
-    }
-}
-
 bool UserManager::isUserLoggedIn()
 {
     if (idOfLoggedUser > 0)
