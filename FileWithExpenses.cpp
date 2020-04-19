@@ -4,7 +4,7 @@ void FileWithExpenses::saveExpenseToFile(Expense expense)
 {
     CMarkup xml;
 
-    if (isFileEmpty(getFileName()))
+    if (fileExists(getFileName()))
     {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("expenses");
