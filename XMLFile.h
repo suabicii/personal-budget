@@ -11,7 +11,7 @@ class XMLFile
     const string FILE_NAME;
 
 protected:
-    bool isFileEmpty(string fileName);
+    bool fileExists(string fileName);
 
 public:
     XMLFile(string fileName) : FILE_NAME(fileName)

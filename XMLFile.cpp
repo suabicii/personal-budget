@@ -1,6 +1,6 @@
 #include "XMLFile.h"
 
-bool XMLFile::isFileEmpty(string fileName)
+bool XMLFile::fileExists(string fileName)
 {
     CMarkup xml;
     if (!xml.Load(MCD_2PCSZ(fileName)))

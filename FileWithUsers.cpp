@@ -4,7 +4,7 @@ void FileWithUsers::writeUserToFile(User user)
 {
     CMarkup xml;
 
-    if (isFileEmpty(MCD_2PCSZ(getFileName())))
+    if (fileExists(MCD_2PCSZ(getFileName())))
     {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("users");
