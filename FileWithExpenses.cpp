@@ -23,7 +23,7 @@ void FileWithExpenses::saveExpenseToFile(Expense expense)
     xml.AddElem("userId", expense.getUserId());
     xml.AddElem("date", OperationsOnDates::convertDateInIntToString(expense.getDate()));
     xml.AddElem("item", expense.getItem());
-    xml.AddElem("amount", expense.getAmount());
+    xml.AddElem("amount", AuxiliaryMethods::convertFloatToString(expense.getAmount()));
 
     lastExpenseId++;
 

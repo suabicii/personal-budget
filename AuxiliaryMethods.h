@@ -15,6 +15,7 @@ class AuxiliaryMethods
 
 public:
     static string convertIntToString(int number);
+    static string convertFloatToString(float number);
     static char enterChar();
     static int enterInteger();
     static float enterFloat();

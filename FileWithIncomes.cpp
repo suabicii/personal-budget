@@ -23,7 +23,7 @@ void FileWithIncomes::saveIncomeToFile(Income income)
     xml.AddElem("userId", income.getUserId());
     xml.AddElem("date", OperationsOnDates::convertDateInIntToString(income.getDate()));
     xml.AddElem("item", income.getItem());
-    xml.AddElem("amount", income.getAmount());
+    xml.AddElem("amount", AuxiliaryMethods::convertFloatToString(income.getAmount()));
 
     lastIncomeId++;
 

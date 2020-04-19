@@ -8,6 +8,14 @@ string AuxiliaryMethods::convertIntToString(int number)
     return str;
 }
 
+string AuxiliaryMethods::convertFloatToString(float number)
+{
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
+
 char AuxiliaryMethods::enterChar()
 {
     string entry = "";
